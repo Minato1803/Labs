@@ -6,7 +6,7 @@ using namespace std;
 #define ll long long
 #define db double
 
-string a,b;
+string a,b,quest;
 char c;
 
 db trans(string s)
@@ -45,6 +45,7 @@ void solves()
 	db first,second;
 	do
 	{
+		loop:
 		system("cls");
 		cout<<"Enter first number, operator, second number: ";
 		cin>>a>>c>>b;
@@ -57,7 +58,11 @@ void solves()
 		}	
 	}
 	while(first==-1||second==-1);
-	cout<<"answer = "<<calc(first,second,c);
+	cout<<"answer = "<<calc(first,second,c)<<endl;
+	cout<<"Do another (y/n)? ";
+	cin>>quest;
+	if(quest=='y')
+		goto loop;
 }
 
 int main()
