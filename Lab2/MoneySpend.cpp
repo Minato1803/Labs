@@ -18,7 +18,6 @@ db moneyres(db a)
 {
 	for(ll i=1;i<=years;i++)
 	{
-		cout<<rate/100<<endl;
 		a+=(a*(rate/100));
 	}
 	return a;
