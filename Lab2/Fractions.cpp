@@ -1,47 +1,90 @@
 #include <iostream>
-#include <string.h>
-#include <sstream>
+#include <string>
+#include <algorithm>
+#include <Windows.h>
 using namespace std;
+
 #define ll long long
-#define db double
 
-ll a1,b1,a2,b2;
+typedef struct num
+{
+	ll sor, ded;
+};
 char c;
+	struct num numst;
+	struct num numnd;
 
-db num(ll a,ll b)
+void input()
 {
-	return (db) a/b;
-}
-
-db calc(db a, db b, char c)
-{
-	if(c=='+')
-		return a+b;
-	if(c=='-')
-		return a-b;
-	if(c=='*')
-		return a*b;
-	if(c=='/')
-		return a/b;			
-}
-
-void solves()
-{
-	do
+	cout<<"Enter first fraction (contain two numbers, divided and divisor): ";
+	cin>>numst.ded>>numst.sor;
+	cout<<"Enter operator: ";
+	cin>>c;
+	cout<<"Enter second fraction (contain two numbers, divided and divisor): ";
+	cin>>numnd.ded>>numnd.sor;
+	if((numst.sor==0||numnd.sor==0)||(c=='/'&&numnd.ded==0))
 	{
-		cout<<"Enter first number, operator, second number: ";
-		cin>>a1>>c>>b1>>c>>a2>>c>>b2;
+		cout<<"\n\t\t\tWrong input!!!!";
+		Sleep(1000);
+		system("cls");
+		input();
 	}
-	while(b1==0&&b2==0);
-	db first = num(a1,b1);
-	db second = num(a2,b2);
-	cout<<first<<" "<<second<<endl;
-	cout<<"answer = "<<calc(first,second,c);
-	
+}
+
+void calc()
+{
+	input();
+	if(c=='+')
+	{
+		if((numst.ded*numnd.sor+numst.sor*numnd.ded)%(numst.sor*numnd.sor)==0)
+		{
+			cout<<"Answer: "<<(numst.ded*numnd.sor+numst.sor*numnd.ded)/(numst.sor*numnd.sor);
+			return;
+		}
+		ll a =__gcd((numst.ded*numnd.sor+numst.sor*numnd.ded),(numst.sor*numnd.sor)); 
+		cout<<"Answer: "<<(numst.ded*numnd.sor+numst.sor*numnd.ded)/a<<"/"<<(numst.sor*numnd.sor)/a;
+	}
+	else if(c=='-')
+	{
+		if((numst.ded*numnd.sor-numst.sor*numnd.ded)%(numst.sor*numnd.sor)==0)
+		{
+			cout<<"Answer: "<<(numst.ded*numnd.sor-numst.sor*numnd.ded)/(numst.sor*numnd.sor);
+			return;
+		}
+		ll a =__gcd((numst.ded*numnd.sor-numst.sor*numnd.ded),(numst.sor*numnd.sor)); 
+		cout<<"Answer: "<<(numst.ded*numnd.sor-numst.sor*numnd.ded)/a<<"/"<<(numst.sor*numnd.sor)/a;
+	}
+	else if(c=='*')
+	{
+		if((numst.ded*numnd.ded)%(numst.sor*numnd.sor)==0)
+		{
+			cout<<"Answer: "<<(numst.ded*numnd.ded)/(numst.sor*numnd.sor);
+			return;
+		}
+		ll a =__gcd((numst.ded*numnd.ded),(numst.sor*numnd.sor)); 
+		cout<<"Answer: "<<(numst.ded*numnd.ded)/a<<"/"<<(numst.sor*numnd.sor)/a;
+	}
+	else if(c=='/')
+	{
+		if((numst.ded*numnd.sor)%(numst.sor*numnd.ded)==0)
+		{
+			cout<<"Answer: "<<(numst.ded*numnd.sor)/(numst.sor*numnd.ded);
+			return;
+		}
+		ll a =__gcd((numst.ded*numnd.sor),(numst.sor*numnd.ded)); 
+		cout<<"Answer: "<<(numst.ded*numnd.sor)/a<<"/"<<(numst.sor*numnd.ded)/a;
+	}
 }
 
 int main()
 {
-	solves();
+	char s;
+	do
+	{
+		calc();
+		cout<<"\nDo another (y/n)? ";
+		cin>>s;		
+	}
+	while(s=='y');
 	return 0;
 }
