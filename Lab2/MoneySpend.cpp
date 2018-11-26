@@ -1,9 +1,7 @@
 #include <iostream>
 using namespace std;
-#define ll long long
-#define db double
-db amount,years;
-db rate;
+double amount,years;
+double rate;
 void input()
 {
 	cout<<"Enter initial amount: ";
@@ -14,9 +12,9 @@ void input()
 	cin>>rate;
 }
 
-db moneyres(db a)
+double moneyres(double a)
 {
-	for(ll i=1;i<=years;i++)
+	for(int i=1;i<=years;i++)
 	{
 		a+=(a*(rate/100));
 	}

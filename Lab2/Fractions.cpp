@@ -4,11 +4,9 @@
 #include <Windows.h>
 using namespace std;
 
-#define ll long long
-
 typedef struct num
 {
-	ll sor, ded;
+	int sor, ded;
 };
 char c;
 	struct num numst;
@@ -41,7 +39,7 @@ void calc()
 			cout<<"Answer: "<<(numst.ded*numnd.sor+numst.sor*numnd.ded)/(numst.sor*numnd.sor);
 			return;
 		}
-		ll a =__gcd((numst.ded*numnd.sor+numst.sor*numnd.ded),(numst.sor*numnd.sor)); 
+		int a =__gcd((numst.ded*numnd.sor+numst.sor*numnd.ded),(numst.sor*numnd.sor)); 
 		cout<<"Answer: "<<(numst.ded*numnd.sor+numst.sor*numnd.ded)/a<<"/"<<(numst.sor*numnd.sor)/a;
 	}
 	else if(c=='-')
@@ -51,7 +49,7 @@ void calc()
 			cout<<"Answer: "<<(numst.ded*numnd.sor-numst.sor*numnd.ded)/(numst.sor*numnd.sor);
 			return;
 		}
-		ll a =__gcd((numst.ded*numnd.sor-numst.sor*numnd.ded),(numst.sor*numnd.sor)); 
+		int a =__gcd((numst.ded*numnd.sor-numst.sor*numnd.ded),(numst.sor*numnd.sor)); 
 		cout<<"Answer: "<<(numst.ded*numnd.sor-numst.sor*numnd.ded)/a<<"/"<<(numst.sor*numnd.sor)/a;
 	}
 	else if(c=='*')
@@ -61,7 +59,7 @@ void calc()
 			cout<<"Answer: "<<(numst.ded*numnd.ded)/(numst.sor*numnd.sor);
 			return;
 		}
-		ll a =__gcd((numst.ded*numnd.ded),(numst.sor*numnd.sor)); 
+		int a =__gcd((numst.ded*numnd.ded),(numst.sor*numnd.sor)); 
 		cout<<"Answer: "<<(numst.ded*numnd.ded)/a<<"/"<<(numst.sor*numnd.sor)/a;
 	}
 	else if(c=='/')
@@ -71,7 +69,7 @@ void calc()
 			cout<<"Answer: "<<(numst.ded*numnd.sor)/(numst.sor*numnd.ded);
 			return;
 		}
-		ll a =__gcd((numst.ded*numnd.sor),(numst.sor*numnd.ded)); 
+		int a =__gcd((numst.ded*numnd.sor),(numst.sor*numnd.ded)); 
 		cout<<"Answer: "<<(numst.ded*numnd.sor)/a<<"/"<<(numst.sor*numnd.ded)/a;
 	}
 }

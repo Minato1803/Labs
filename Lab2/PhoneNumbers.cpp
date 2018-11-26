@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-#define ll long long
 typedef struct phonenum
 {
 	string areacode, exchange, numbers;

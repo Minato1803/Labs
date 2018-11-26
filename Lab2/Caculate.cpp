@@ -1,12 +1,10 @@
 #include <iostream>
 using namespace std;
-#define ll long long
-#define db double
 
-ll a,b;
+int a,b;
 char s,quest;
 
-db calc(ll a, ll b, char s)
+double calc(int a, int b, char s)
 {
 	if(s=='+')
 		return a+b;
@@ -15,7 +13,7 @@ db calc(ll a, ll b, char s)
 	if(s=='*')
 		return a*b;
 	if(s=='/')
-		return (db) a/b;			
+		return (double) a/b;			
 }
 
 void solves()
